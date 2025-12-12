@@ -1,4 +1,4 @@
-# super-duper-phaseolus
+# super-meta-phaseolus
 
 16S rRNA Bioinformatics Pipeline (QIIME2-based)
 
