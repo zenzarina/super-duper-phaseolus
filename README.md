@@ -81,9 +81,10 @@ manifest.txt – Manifest file for QIIME2 data import
 +   ├─ 4_denoise_sequences.sh
 +   ├─ 8_collapse_all_levels.sh
 +   └─ 9_merge_to_excel.py
+
 + collapsed_levels_results/
-+   ├─ absolute_tables/
-+   └─ relative_tables/
++ ├─ absolute_tables/
++  └─ relative_tables/
 + sample-metadata.tsv
 + silva_138.2_db_SSURef_NR99_dna_classifier.qza
 
