@@ -25,7 +25,7 @@ Each step corresponds to a script in the scripts/ directory.
 Run each module independently:
 ```
 bash scripts/1_get_and_train_silvaDB.sh
-bash scripts/01_trim_cutadapt.sh
+bash scripts/2_Create_manifest_PE.sh
 ```
 
 ------------------------------------------------------------
