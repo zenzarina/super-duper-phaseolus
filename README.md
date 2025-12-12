@@ -52,7 +52,9 @@ Analysis Pipeline
 
 5. Taxonomic Assignment: ASVs were classified using a Naïve Bayes classifier trained on SILVA 138.2 (99%), specific for the V3–V4 region of the 16S rRNA gene.
 
-6. Taxonomic Collapsing: Absolute and relative abundance tables were collapsed across taxonomic levels (Domain → Genus) for downstream analyses.
+8. Taxonomic Collapsing: Absolute and relative abundance tables were collapsed across taxonomic levels (Domain → Genus) for downstream analyses.
+
+9. Merge tables to Excel: csv format 
 
 ------------------------------------------------------------
 Directory Structure
@@ -71,6 +73,19 @@ The main directory follows this internal organization:
 5_visualizations/ – Quality plots and QIIME2 visualizations
 sample-metadata.tsv – Subsample metadata
 manifest.txt – Manifest file for QIIME2 data import
+
++ script/
++   ├─ 1_get_and_train_silvaDB.sh
++   ├─ 2_create_manifest_PE.sh
++   ├─ 3_import_data.sh
++   ├─ 4_denoise_sequences.sh
++   ├─ 8_collapse_all_levels.sh
++   └─ 9_merge_to_excel.py
++ collapsed_levels_results/
++   ├─ absolute_tables/
++   └─ relative_tables/
++ sample-metadata.tsv
++ silva_138.2_db_SSURef_NR99_dna_classifier.qza
 
 ------------------------------------------------------------
 Notes
