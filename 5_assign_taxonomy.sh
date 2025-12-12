@@ -33,7 +33,7 @@ SPECIES_DIR="Collapsed_species"
 mkdir -p "$BARPLOT_DIR" "$SPECIES_DIR"
 
 # ===============================
-# 1️⃣ Assign taxonomy using pre-trained classifier
+# 1️ Assign taxonomy using pre-trained classifier
 # ===============================
 qiime feature-classifier classify-sklearn \
   --i-classifier "$CLASSIFIER" \
@@ -46,7 +46,7 @@ qiime metadata tabulate \
   --o-visualization taxonomy.qzv
 
 # ===============================
-# 2️⃣ Create taxa bar plots
+# 2️ Create taxa bar plots
 # ===============================
 qiime taxa barplot \
   --i-table "$FEATURE_TABLE" \
@@ -58,7 +58,7 @@ qiime tools export --input-path "$BARPLOT_DIR/taxa-bar-plots.qzv" --output-path 
 mv "$BARPLOT_DIR/index.html" "$BARPLOT_DIR/bar_plot.html"
 
 # ===============================
-# 3️⃣ Collapse feature table to species level
+# 3️ Collapse feature table to species level
 # ===============================
 qiime taxa collapse \
   --i-table "$FEATURE_TABLE" \
