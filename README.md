@@ -31,27 +31,25 @@ bash scripts/01_trim_cutadapt.sh
 ------------------------------------------------------------
 Analysis Pipeline
 ------------------------------------------------------------
-1. Demultiplexing: Raw paired-end Illumina reads were demultiplexed using QIIME2 v2025.4.
+1. Database & Classifier – SILVA 138.2 V3–V4 sequences, dereplicated, filtered, and trained as a Naïve Bayes classifier.
 
-2. Primer Removal: Primer sequences were removed using the cutadapt trim-paired plugin.
+2. Demultiplexing – Raw paired-end reads → sequences_untrimmed.qza.
 
-3. Quality Assessment: Read quality was evaluated using qiime demux summarize to determine optimal trimming thresholds.
+3. Primer Removal – Remove primers with cutadapt trim-paired → sequences.qza. Quality Assessment – Visualize read quality with qiime demux summarize.
 
-4. Denoising & Filtering: Forward and reverse reads were trimmed at Q20. DADA2 denoise-paired was used for filtering, denoising, merging, and chimera removal. This step produced:
-    - Amplicon Sequence Variants (ASVs)
-    - Representative sequences for each ASV.
+4. Denoising & Filtering – DADA2 to produce ASVs (rep-seqs.qza), feature table (table.qza), and stats.
 
-5. Taxonomic Assignment: ASVs were classified using a Naïve Bayes classifier trained on SILVA 138.2 (99%), specific for the V3–V4 region of the 16S rRNA gene.
+5. Taxonomic Assignment – Classify ASVs with trained SILVA classifier → taxonomy.qza, taxonomy.qzv, barplots.
 
-6. Taxonomic Collapsing: Absolute and relative abundance tables were collapsed across taxonomic levels (Domain → Genus) for downstream analyses.
+6. Collapsing – Feature tables collapsed across taxonomic levels (Domain → Species) → absolute & relative tables (.qza, .biom, .tsv).
 
-7. Merge tables to Excel: csv format 
+7. Merge to Excel – All levels combined in a single Excel workbook, one sheet per level, absolute & relative abundances.
 
 ------------------------------------------------------------
 Directory Structure
 ------------------------------------------------------------
 Phseolus_vulgaris
-script/
+script/ 
 sample-metadata.tsv
 silva_138.2_db_SSURef_NR99_dna_classifier.qza
 
