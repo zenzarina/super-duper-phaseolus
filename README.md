@@ -1,9 +1,41 @@
 # super-duper-phaseolus
 
-16S rRNA Analysis – Andes & Meso Groups
+16S rRNA Bioinformatics Pipeline (QIIME2-based)
 
-This repository contains all bioinformatic analyses performed on the 16S rRNA samples belonging to the Andes and Meso groups.
-Both groups were processed independently but following the same pipeline, parameters, and quality thresholds.
+This repository contains a reproducible and modular 16S rRNA processing pipeline built using QIIME2.
+Only reusable scripts, parameter files, and example dummy inputs are provided.
+
+-----------------------------------------------------------
+
+## 🧪 Pipeline Overview
+
+Import & Demultiplexing
+Primer trimming (cutadapt)
+Quality assessment
+Denoising (DADA2)
+ASV table generation
+Taxonomic assignment
+Taxonomic collapsing
+Basic visualizations
+
+Each step corresponds to a script in the scripts/ directory.
+------------------------------------------------------------
+
+## 🛠️ Usage
+
+Run each module independently:
+```
+bash scripts/00_import.sh
+bash scripts/01_trim_cutadapt.sh
+bash scripts/02_dada2.sh
+```
+Or integrate them into your own pipeline/workflow.
+
+------------------------------------------------------------
+## 🎯 Notes
+
+This repository contains no raw FASTQ files, sample identifiers, or sensitive metadata.
+The pipeline can be adapted for other hypervariable regions or primer sets.
 
 ------------------------------------------------------------
 Analysis Pipeline
@@ -25,14 +57,13 @@ Analysis Pipeline
 ------------------------------------------------------------
 Directory Structure
 ------------------------------------------------------------
-ande/
-meso/
+Phseolus_vulgaris
 script/
 sample-metadata.tsv
 silva_138.2_db_SSURef_NR99_dna_classifier.qza
 
 
-Each group directory (Andes, Meso) follows the same internal organization:
+The main directory follows this internal organization:
 1_trimming_cutadapt/ – Primer-free reads
 2_dada2_output/ – ASV tables and representative sequences
 3_taxonomy_assignment/ – Taxonomic assignments (SILVA 138.2)
