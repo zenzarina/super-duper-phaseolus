@@ -1,12 +1,17 @@
 # super-meta-phaseolus
-
 16S rRNA Bioinformatics Pipeline (QIIME2-based)
 
 This repository contains a reproducible and modular 16S rRNA processing pipeline built using QIIME2.
 Only reusable scripts, parameter files, and example dummy inputs are provided.
 
------------------------------------------------------------
+Most of this pipeline was taken from https://github.com/MaestSi/QIIME2_Illumina,
+by Simone Maestri.
 
+-----------------------------------------------------------
+## Installation
+To recreate the analysis environment, run: `conda env create -f envs/environment.yml`
+
+-----------------------------------------------------------
 ##  Pipeline Overview
 
 Import & Demultiplexing
