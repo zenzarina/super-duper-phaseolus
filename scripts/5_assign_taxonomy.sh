@@ -60,10 +60,11 @@ mv "$BARPLOT_DIR/index.html" "$BARPLOT_DIR/bar_plot.html"
 # ===============================
 # 3️ Collapse feature table to species level
 # ===============================
+
 qiime taxa collapse \
   --i-table "$FEATURE_TABLE" \
   --i-taxonomy taxonomy.qza \
-  --p-level 7 \
+  --p-level 6 \
   --o-collapsed-table "$SPECIES_DIR/table_collapsed_species.qza"
 
 # Absolute frequencies
