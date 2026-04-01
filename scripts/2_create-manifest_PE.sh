@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#
-# Copyright 2021 Simone Maestri. All rights reserved.
+# Modify of Copyright 2021 Simone Maestri. All rights reserved.
 # Simone Maestri <simone.maestri@univr.it>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -19,11 +18,12 @@
 #
 
 # =====================================================================
-# Script: create-manifest_PE.sh
+# Script: 2_create-manifest_PE.sh
 # Description: Generates a QIIME2-compliant Paired-End manifest file.
 # Input 1: Metadata file (TSV/CSV) with sample IDs in the first column.
 # Input 2: Directory containing FASTQ files.
 # Output: manifest.txt
+# Usage: 2_create-manifest_PE.sh <sample_metadata> <reads_dir>
 # =====================================================================
 
 SAMPLE_METADATA=$1
@@ -41,14 +41,14 @@ READS_DIR=$(readlink -f "$READS_DIR")
 #creating a manifest.txt with three columns
 # sample ID | R1 forward absolute filepath | R2 reverse absolute filepath
 # Manifest header (QIIME2 format: PairedEndFastqManifestPhred33V2)
-echo -e "sample-id\tforward-absolute-filepath\treverse-absolute-filepath" > manifest.txt
+echo -e sample-id"\t"forward-absolute-filepath"\t"reverse-absolute-filepath > manifest.txt
 
 # Loop through sample IDs (skip header)
-tail -n +2 "$SAMPLE_METADATA" | cut -f1 | while read -r SAMPLE; do
-    R1=$(find "$READS_DIR" -type f | grep "${SAMPLE}_" | grep "R1" | grep "\.fastq\.gz" | xargs realpath)
-    R2=$(find "$READS_DIR" -type f | grep "${SAMPLE}_" | grep "R2" | grep "\.fastq\.gz" | xargs realpath)
-
-    echo -e "${SAMPLE}\t${R1}\t${R2}" >> manifest.txt
+for s in $(cat $SAMPLE_METADATA | cut -f1 | tail -n +2); do
+  echo $s;
+  R1=$(realpath $(find $READS_DIR | grep $s"_" | grep "R1" | grep "\\.fastq\\.gz"));
+  R2=$(realpath $(find $READS_DIR | grep $s"_" | grep "R2" | grep "\\.fastq\\.gz"));
+  echo -e $s"\t"$R1"\t"$R2 >> manifest.txt
 done
 
 echo "Manifest created successfully: manifest.txt"
