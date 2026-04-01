@@ -23,11 +23,12 @@
 ########################################
 
 # PCR primers (V3–V4)
-FW=AGCCTACGGGNGGCWGCAG ## insert your own!! 
-RV=GACTACHVGGGTATCTAATCC
+## insert your own!! 
+FW= 
+RV= 
 
 # Expected working directory: databases/silva
-conda activate nano
+conda activate interact
 
 ########################################
 # FUNCTION DEFINITIONS
