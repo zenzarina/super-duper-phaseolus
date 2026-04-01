@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ===============================================
-# Script: collapse_all_levels.sh
+# Script: 6_collapse_all_levels.sh
 # Description: Collapse QIIME2 feature table to taxonomic levels 1–7
 #              and generate absolute and relative tables for each level,
 #              including TSV and BIOM exports.
@@ -82,7 +82,7 @@ echo "   - relative_tables/relative_level*.qza/.tsv/.biom"
 
 # --- OPTIONAL: Convert decimal points to commas for Excel ---
 # Uncomment below if needed:
-# for i in {1..7}; do
-#     sed 's/\./,/g' "${ABS_DIR}/absolute_level${i}.tsv" > "${ABS_DIR}/abs_level${i}.tsv"
-#     sed 's/\./,/g' "${REL_DIR}/relative_level${i}.tsv" > "${REL_DIR}/rel_level${i}.tsv"
-# done
+ for i in {1..7}; do
+     sed 's/\./,/g' "${ABS_DIR}/absolute_level${i}.tsv" > "${ABS_DIR}/abs_level${i}.tsv"
+     sed 's/\./,/g' "${REL_DIR}/relative_level${i}.tsv" > "${REL_DIR}/rel_level${i}.tsv"
+ done
