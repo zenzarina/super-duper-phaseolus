@@ -21,7 +21,7 @@
 # =====================================================================
 # Script: denoise_sequences.sh
 # Description: Paired-end denoising with DADA2. Produces ASV table,
-#              representative sequences, quality summaries and stats.
+# representative sequences, quality summaries and stats.
 # Usage:
 #   bash denoise_sequences.sh <TRIM_F> <TRIM_R> <TRUNC_F> <TRUNC_R>
 # =====================================================================
@@ -97,9 +97,3 @@ qiime metadata tabulate \
     --o-visualization denoising-stats.qzv
 
 echo " Denoising completed. Generated:"
-echo "   - table.qza / table.qzv"
-echo "   - rep-seqs.qza / rep-seqs.qzv"
-echo "   - feature-frequencies.qza"
-echo "   - sample-frequencies.qza"
-echo "   - summary.qzv"
-echo "   - denoising-stats.qza / denoising-stats.qzv"
