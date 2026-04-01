@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#
-# Copyright 2021 Simone Maestri. All rights reserved.
+# Modify by me of Copyright 2021 Simone Maestri. All rights reserved.
 # Simone Maestri <simone.maestri@univr.it>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -17,6 +16,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+
+# This script generates a custom QIIME2 taxonomic classifier by trimming 
+# the SILVA 138.2 database to your specific primer region (V3-V4), 
+# ensuring maximum assignment accuracy by aligning the reference 
+# 'learning' data with your experimental sequences
 
 ########################################
 # VARIABLES
