@@ -23,9 +23,7 @@
 # Description: Paired-end denoising with DADA2. Produces ASV table,
 #              representative sequences, quality summaries and stats.
 # Usage:
-#   bash denoise_sequences.sh TRIM_F TRIM_R TRUNC_F TRUNC_R
-# Example:
-#   nohup bash denoise_sequences.sh 0 0 276 206 &
+#   bash denoise_sequences.sh <TRIM_F> <TRIM_R> <TRUNC_F> <TRUNC_R>
 # =====================================================================
 
 TRIM_LEFT_F=$1
