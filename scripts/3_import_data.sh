@@ -19,13 +19,9 @@
 #
 
 # =====================================================================
-# Script: import_data.sh
-# Description: Import paired-end FASTQ files into QIIME2, summarize
-#              quality, remove primers, and re-summarize.
-# Usage:
-#   bash import_data.sh manifest.txt FW_PRIMER RV_PRIMER
-# Example:
-#   nohup bash import_data.sh manifest.txt AGCCTACGGGNGGCWGCAG GACTACHVGGGTATCTAATCC &
+# Script: 3_import_data.sh
+# Description: Import paired-end FASTQ files into QIIME2, summarize quality, remove primers, and re-summarize.
+# Usage: 3_import_data.sh <manifest.txt> <FW_PRIMER> <RV_PRIMER>
 # =====================================================================
 
 MANIFEST=$1
@@ -82,7 +78,3 @@ qiime demux summarize \
     --verbose
 
 echo " Import completed. Generated:"
-echo "   - sequences_untrimmed.qza"
-echo "   - demux_summary_untrimmed.qzv"
-echo "   - sequences.qza"
-echo "   - demux_summary_trimmed.qzv"
