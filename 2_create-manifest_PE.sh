@@ -22,12 +22,12 @@
 # Script: create-manifest_PE.sh
 # Description: Generates a QIIME2-compliant Paired-End manifest file.
 # Input 1: Metadata file (TSV/CSV) with sample IDs in the first column.
-# Input 2: (optional) Directory containing FASTQ files.
+# Input 2: Directory containing FASTQ files.
 # Output: manifest.txt
 # =====================================================================
 
 SAMPLE_METADATA=$1
-READS_DIR=$2  # optional: can also be hardcoded below if needed
+READS_DIR=$2  # #directory with files (optional: can also be hardcoded below if needed)
 
 # If no directory is passed, EXIT with an error
 if [[ -z "$SAMPLE_METADATA" || -z "$READS_DIR" ]]; then
@@ -38,6 +38,8 @@ fi
 # Ensure absolute file path
 READS_DIR=$(readlink -f "$READS_DIR")
 
+#creating a manifest.txt with three columns
+# sample ID | R1 forward absolute filepath | R2 reverse absolute filepath
 # Manifest header (QIIME2 format: PairedEndFastqManifestPhred33V2)
 echo -e "sample-id\tforward-absolute-filepath\treverse-absolute-filepath" > manifest.txt
 
