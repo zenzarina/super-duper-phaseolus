@@ -44,6 +44,7 @@ Download() {
 }
 
 # 2 — RNA → DNA conversion
+# (needed by qiime feature-classifier)
 Retro-transcr() {
     qiime rescript reverse-transcribe \
         --i-rna-sequences silva-138.2-ssu-nr99-rna-seqs.qza \
@@ -51,6 +52,8 @@ Retro-transcr() {
 }
 
 # 3 — Remove ambiguous bases / homopolymers
+# removes seqs with ambiguous bases and homopolymers. 
+# Defaul 5 and 8 bases/legth  respectively 
 Culling() {
     qiime rescript cull-seqs \
         --i-sequences silva-138.2-ssu-nr99-seqs.qza \
@@ -92,6 +95,8 @@ Extract-region() {
 }
 
 # 7 — Dereplication after region extraction
+# Even though we already dereplicated our full-length sequences, 
+# we'll do so again as the extracted amplicon regions may now be identical over this shorter region.
 Dereplicate-2() {
     qiime rescript dereplicate \
         --i-sequences re-seqs-V3V4.qza \
