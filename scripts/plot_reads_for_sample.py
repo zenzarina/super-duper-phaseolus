@@ -1,3 +1,24 @@
+# Date: April 2026
+
+# Author: Chiara | super-meta-phaseolus
+
+# Goal: This script visualizes sequencing depth across a dataset to assess library uniformity and sample success. 
+
+# Key Features
+# 1) Dual-Input Compatibility: Processes both SampleData (FASTQ sequences) and FeatureTable[Frequency] (ASV tables). 
+# 2) two option of sorting 
+#   2A) Reads Abundance Sorting: Samples are displayed in increasing order of abundance to highlight low-depth outliers.
+#   2B) Sample ID Sorting: Samples are displayed in increasing order of sample ID (numerical) 
+# 3) Statistical Baseline: Automatically calculates and plots the mean read depth as a red reference line.
+
+# ----------------USAGE
+#                 python plot_all_stages.py -i input_file.qza -o output_name.png -t "Your Plot Title"
+
+# nohup reccomended  for large datasets 
+# ----------------------------------
+
+
+
 import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
